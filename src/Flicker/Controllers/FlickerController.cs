@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Flicker.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace Flicker.Controllers
 {
@@ -48,5 +49,36 @@ namespace Flicker.Controllers
             var thisImage = _db.Images.FirstOrDefault(images => images.ImageId == id);
             return View(thisImage);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var thisImage = _db.Images.FirstOrDefault(images => images.ImageId == id);
+            return View(thisImage);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Image image)
+        {
+            _db.Entry(image).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisItem = _db.Images.FirstOrDefault(items => items.ImageId == id);
+            return View(thisItem);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisItem = _db.Images.FirstOrDefault(items => items.ImageId == id);
+            _db.Images.Remove(thisItem);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

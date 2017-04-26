@@ -13,7 +13,7 @@
     <ul>
         @foreach (var listImage in Model)
         {
-            <li>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", new { id = listImage.ImageId })</li>
+            <li>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", new { id = listImage.ImageId }) | @Html.ActionLink("Edit", "Edit", new { id = listImage.ImageId }) | @Html.ActionLink("Delete", "Delete", new { id = listImage.ImageId }) </li>
         }
     </ul>
 }
