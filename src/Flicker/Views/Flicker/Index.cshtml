@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Flicker.Models.Image>
+
+<h2>Here is your list of images, @User.Identity.Name</h2>
+<hr />
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listImage in Model)
+        {
+            <li>@Html.DisplayFor(modelImage => listImage.Description)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No images have been added yet!</p>
+}
+
+@Html.ActionLink("Create new", "Create")
