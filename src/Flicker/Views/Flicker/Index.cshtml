@@ -5,21 +5,29 @@
 
 @model IEnumerable<Flicker.Models.Image>
 
-<h2>Here is your list of images, @User.Identity.Name</h2>
+<h2>@User.Identity.Name's Feed</h2>
 <hr />
 
 @if (Model.Any())
 {
-    <ul>
+    <div class="images-feed">
         @foreach (var listImage in Model)
         {
-            <li>@Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", new { id = listImage.ImageId }) | @Html.ActionLink("Edit", "Edit", new { id = listImage.ImageId }) | @Html.ActionLink("Delete", "Delete", new { id = listImage.ImageId }) </li>
+            <div>
+                @Html.DisplayFor(modelImage => listImage.Description) | @Html.ActionLink("Details", "Details", new { id = listImage.ImageId }) | @Html.ActionLink("Edit", "Edit", new { id = listImage.ImageId }) | @Html.ActionLink("Delete", "Delete", new { id = listImage.ImageId })
+            </div>
+            <div class="images-feed-items">
+                <img class="images-feed-photos" src=@Html.DisplayFor(modelImage => listImage.Url) />
+            </div>
         }
-    </ul>
+    </div>
 }
 else
 {
     <p>No images have been added yet!</p>
 }
-
-@Html.ActionLink("Create new", "Create")
+<footer class="footer">
+    <div class="container">
+        <p> @Html.ActionLink("Create new", "Create")</p>
+    </div>
+</footer>

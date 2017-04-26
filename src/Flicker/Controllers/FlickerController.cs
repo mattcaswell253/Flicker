@@ -29,6 +29,11 @@ namespace Flicker.Controllers
             return View(_db.Images.Where(x => x.User.Id == currentUser.Id));
         }
 
+        public IActionResult AllPhotos()
+        {
+            return View(_db.Images.ToList());
+        }
+
         public IActionResult Create()
         {
             return View();

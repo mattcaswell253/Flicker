@@ -13,6 +13,10 @@
 
     @Html.LabelFor(model => model.Description)
     @Html.EditorFor(model => model.Description)
+
+    @Html.LabelFor(model => model.Url)
+    @Html.EditorFor(model => model.Url)
+
     <input type="submit" value="Create" />
 }
 @Html.ActionLink("Back to List", "Index")

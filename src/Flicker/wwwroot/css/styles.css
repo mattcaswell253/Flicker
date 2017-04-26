@@ -1,0 +1,41 @@
+﻿body {
+}
+
+.images-feed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.images-feed-items {
+    justify-content: center;
+    align-items: center;
+
+
+    width: 80%;
+    height: 0;
+    padding-bottom: 66.67%;
+    border: 2px solid white;
+    position: relative;
+}
+
+.images-feed-photos {
+    width: 75%;
+    position: absolute;
+}
+
+.footer {
+    text-align: center;
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+    background-color: aquamarine;
+    padding-top: 10px;
+}
