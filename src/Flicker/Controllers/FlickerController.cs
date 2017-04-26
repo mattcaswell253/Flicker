@@ -22,14 +22,14 @@ namespace Flicker.Controllers
             _userManager = userManager;
             _db = db;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> MyImages()
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             return View(_db.Images.Where(x => x.User.Id == currentUser.Id));
         }
 
-        public IActionResult AllPhotos()
+        public IActionResult Index()
         {
             return View(_db.Images.ToList());
         }
