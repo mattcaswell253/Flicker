@@ -42,5 +42,11 @@ namespace Flicker.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisImage = _db.Images.FirstOrDefault(images => images.ImageId == id);
+            return View(thisImage);
+        }
     }
 }
