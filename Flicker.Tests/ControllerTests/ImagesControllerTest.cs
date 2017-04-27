@@ -30,6 +30,23 @@ namespace Flicker.Tests.ControllerTests
             //Assert
             Assert.IsType<ViewResult>(result);
         }
+        [Fact]
+        public void Get_ModelList_Index_Test()
+        {
+            var contextOptions = new DbContextOptionsBuilder()
+         .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=_Flicker;integrated security=True")
+         .Options;
+            var _db = new ApplicationDbContext(contextOptions);
+            //Arrange
+            FlickerController controller = new FlickerController(_userManager, _db);
+            IActionResult actionResult = controller.Index();
+            ViewResult indexView = controller.Index() as ViewResult;
 
+            //Act
+            var result = indexView.ViewData.Model;
+
+            //Assert
+            Assert.IsType<List<Image>>(result);
+        }
     }
 }
