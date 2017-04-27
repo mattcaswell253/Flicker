@@ -215,6 +215,7 @@ C:\Users\epicodus\Desktop\Flicker\src\Flicker\Migrations\20170426221657_AddUrl.D
 C:\Users\epicodus\Desktop\Flicker\src\Flicker\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\epicodus\Desktop\Flicker\src\Flicker\Models\ApplicationDbContext.cs
 C:\Users\epicodus\Desktop\Flicker\src\Flicker\Models\ApplicationUser.cs
+C:\Users\epicodus\Desktop\Flicker\src\Flicker\Models\Comment.cs
 C:\Users\epicodus\Desktop\Flicker\src\Flicker\Models\Image.cs
 C:\Users\epicodus\Desktop\Flicker\src\Flicker\ViewModels\LoginViewModel.cs
 C:\Users\epicodus\Desktop\Flicker\src\Flicker\ViewModels\RegisterViewModel.cs

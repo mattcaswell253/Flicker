@@ -8,3 +8,14 @@
 <h3>@Html.DisplayFor(model => model.Description)</h3>
 
 <img src=@Html.DisplayFor(model => model.Url) />
+
+@using (Html.BeginForm("Create", "Flicker", FormMethod.Post))
+{
+    <input id="ImageId" name="ImageId" type="hidden" value="@Model.ImageId" />
+    <label for="body">Enter Comment</label>
+    <input id="body" name="body" type="text" />
+
+    <input type="submit" value="Add Comment" class="btn btn-default" />
+}
+
+@Html.ActionLink("Back to index", "Index", "Account")

@@ -7,18 +7,22 @@ using Flicker.Controllers;
 using Flicker.Models;
 using Xunit;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Flicker.Tests.ControllerTests
 {
     public class ImagesControllerTest
     {
-        private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         [Fact]
         public void Get_ViewResult_Index_Test()
         {
+            var contextOptions = new DbContextOptionsBuilder()
+          .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=_Flicker;integrated security=True")
+          .Options;
+            var _db = new ApplicationDbContext(contextOptions);
             //Arrange
-            FlickerController controller = new FlickerController(_userManager, _db);
+           var controller = new FlickerController(_userManager, _db);
 
             //Act
             var result = controller.Index();
